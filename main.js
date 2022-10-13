@@ -2,15 +2,15 @@
 
 console.log('hello world')
 console.error('This is an error')
- // var-globally scoped  ,let-you can reassign values  ,const-cant be changed  -always use const unless youre going to reassign the values
+// var-globally scoped  ,let-you can reassign values  ,const-cant be changed  -always use const unless youre going to reassign the values
  
 
 //string,numbers,boolean,null,undefined,symbol. 
- const name ='John';
- const Age =38;
- const iscool = true;
- const x = null;
- const y = undefined;
+const name ='John';
+const Age =38;
+const iscool = true;
+const x = null;
+const y = undefined;
 const rating = 4.5;
 let z; //undefined
 
@@ -50,7 +50,7 @@ console.log(b);
 LINE COMMENTS*/
 
 //ARRAYS!!!- Tthese are variables that hold multiple values
- //1-using an array constructor
+//1-using an array constructor
 const numbers = new Array(1,2,3,4,5); //if you see the keyword 'new' you know its a constructor 
 console.log(numbers);
 
@@ -69,3 +69,137 @@ fruits.pop();// removes last element in array
 console.log(fruits);
 console.log(Array.isArray(fruits));// to check if something is an array
 console.log(fruits.indexOf('apples'))//index of a certain value 
+
+//OBJECT LITERALS-these are basically key value pairs
+const person={
+  firstname: 'Tracy',
+    lastname:   'Najjoba',
+    age :     20,
+    hobbies:['movies','basketball','eating','swimming','JavaScript'],
+     //we can also put embedded objects
+     address: { 
+         street: '50 main st',
+         city: 'Boston',
+        state: 'MA'
+     }
+}
+console.log(person) 
+//to access a single element you add a dot to the variable
+ console.log(person.firstname); 
+ //you can also access different logs with commas 
+ //for instance you want to access two objects under person
+ console.log(person.firstname,person.lastname); 
+// //Challenge -print out one item from the hobbies
+ console.log(person.hobbies[2]) 
+
+
+//we can also use destructuring
+  const {firstname,lastname} = person;
+  console.log(firstname) ;
+ //if theres an embedded object 
+ // const {firstname,lastname,address:{city}} = person;
+  console.log(city);
+
+ //we can also add properties
+person.email='tracynajjoba8@gmail.com';
+console.log(person)//you will notice in the output that email has been added
+
+//more of arrays and objects
+//commas go right after each element and right after an object
+const todos=[
+     {
+         id:1,
+         text: 'Take out trash',
+         isCompleted: true
+    },
+    {
+        id:2,
+        text: 'Meeting with the boss',
+        isCompleted: true
+    },
+     {
+         id:3,
+         text: 'Dentist appointment',
+         isCompleted: false
+    }
+ ];
+console.log(todos)
+console.log(todos[1].text)
+
+//JSON FORMAT-Is aformat you receive or send work to and from a server
+
+const todoJSON = JSON.stringify(todos);
+console.log(todoJSON);
+
+//FOR LOOPS-has three steps 
+//1-assignment of the iterator
+//2-the condition that needs to be met
+//3-the increment
+for(let i=0; i <=10 ;i++){
+console.log(`for loop number:${i}`);
+ }
+
+//WHILE LOOP
+let i =0;
+ while(i<10){
+    console.log(`while loop number:${i}`);
+    i++;
+ }
+
+
+// HOW TO LOOP THROUGH ARRAYS
+
+const todos1=[
+         {
+             id:1,
+             text: 'Take out trash',
+             isCompleted: true
+         },
+         {
+             id:2,
+             text: 'Meeting with the boss',
+             isCompleted: true
+         },
+         {
+             id:3,
+           text: 'Dentist appointment',
+            isCompleted: false
+         }
+    ];
+    console.log(todos1)
+    console.log(todos1[1].text)
+    
+for(let i=0; i < todos1.length;i++){
+     console.log(todos1[i].text);
+     }
+
+// A FOR OF LOOP
+for(let todo of todos1 ){
+console.log(todo.id)
+}
+
+ // HIGH ORDER ARRAY METHODS 
+ /*for each-loops through them
+ map-allow us to create a new array from an array
+ filter-make a new array based on a condition */
+ todos1.forEach(function(todo) {
+ console.log(todo.text);
+ })
+
+  const todoText=todos1.map(function(todo) {
+     return todo.text;
+     })
+    console.log(todoText); 
+
+    const todoCompleted=todos1.filter(function(todo) {
+        return todo.isCompleted== true;
+        }).map(function(todo){
+            return todo.text;
+        })
+        console.log(todoCompleted);
+        //you can also add other methods as above.
+
+
+
+
+      
