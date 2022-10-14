@@ -98,7 +98,7 @@ console.log(person)
   console.log(firstname) ;
  //if theres an embedded object 
  // const {firstname,lastname,address:{city}} = person;
-  console.log(city);
+  //console.log(city);
 
  //we can also add properties
 person.email='tracynajjoba8@gmail.com';
@@ -198,6 +198,81 @@ console.log(todo.id)
         })
         console.log(todoCompleted);
         //you can also add other methods as above.
+
+        const h =70;
+        if(h==10){
+            //double equal doesnot reference data type
+            //triple sign ensures that there is matching of the datatype 
+        console.log(h)    
+        }else if (x>10){
+            console.log('x is greater than the value')
+
+        }else {
+            console.log('h is  less the value')
+        }
+        // or is represented by || and, and represented by && 
+
+        const e =80;
+        const color= e>10? 'red': 'blue'
+        //?-asks,:stands for else(illustration of iternary operators)
+        console.log(color)
+
+
+        //SWITCHES
+        const T =80;
+        const colour= T>10? 'red': 'blue'
+        switch(colour){
+            case'red'://set a case
+            console.log('colour is red')
+            break;
+            case'blue':
+            console.log('colour is blue')
+            break;
+            default:
+                console.log('colour is not red or blue')
+        }
+
+        //FUNCTIONS
+        //state your function then print out what it does
+        function addnums(num1,num2){
+            console.log(num1+num2)
+        }
+        addnums(5,4)//call the function
+        //you an also assign values to the parameters
+        function addition(numb1=4,numb2=6){
+            console.log(numb1+numb2)//also return numb1+numb2 works then add the console log as you call the function
+        }
+        addition();//however if you pass values as you call the function they will override the set parameters
+
+// ARROW FUNCTIONS
+const add =(a=4,b=3)=>  a+b
+console.log(add());
+
+//OOP
+//USING A CONSTRUCTOR FUNCTION
+function Person(firstN,surname,dob){
+this.firstN=firstN;
+this.surname=surname;
+this.dob= new Date (dob);
+this.getBirthYear=function(){
+    return this.dob.getFullYear();
+}
+this.getFullName=function(){
+    return  `${this.firstN} ${this.surname}`;
+}
+} 
+//INSTANTIATE OBJECT-uSING THE CONSTRUCTOR FUNCTION
+const person1=new Person('Arnold','Ssejjoba','3-17-2003');//date in the order of mdy
+console.log(person1);//diffrence between this and the object literal is this is prefixed by the actual name of the object
+const person2=new Person('Allan ','Mugumbya','28-8-1995');
+console.log(person2.firstN)
+// introduce new Date to dob to get an actual date
+console.log(person1.dob)//you can format the date with a dot
+// you can add methods
+console.log(person1.getBirthYear())
+console.log(person1.getFullName());
+
+
 
 
 
