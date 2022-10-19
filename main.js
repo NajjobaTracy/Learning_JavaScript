@@ -250,17 +250,20 @@ console.log(add());
 
 //OOP
 //USING A CONSTRUCTOR FUNCTION
-function Person(firstN,surname,dob){
-this.firstN=firstN;
-this.surname=surname;
-this.dob= new Date (dob);
-this.getBirthYear=function(){
-    return this.dob.getFullYear();
-}
-this.getFullName=function(){
-    return  `${this.firstN} ${this.surname}`;
-}
-} 
+ function Person(firstN,surname,dob){
+ this.firstN=firstN;
+ this.surname=surname;
+ this.dob= new Date (dob);
+
+ }
+ Person.prototype.getBirthYear = function(){
+     return this.dob.getFullYear();
+ }
+  Person.prototype.getFullName=function(){
+     return  `${this.firstN} ${this.surname}`;
+ } 
+
+
 //INSTANTIATE OBJECT-uSING THE CONSTRUCTOR FUNCTION
 const person1=new Person('Arnold','Ssejjoba','3-17-2003');//date in the order of mdy
 console.log(person1);//diffrence between this and the object literal is this is prefixed by the actual name of the object
@@ -271,6 +274,33 @@ console.log(person1.dob)//you can format the date with a dot
 // you can add methods
 console.log(person1.getBirthYear())
 console.log(person1.getFullName());
+
+
+//USING CLASS AND  METHODS
+class Persons {
+    constructor(firstN,surname,dob){
+        this.firstN=firstN;
+        this.surname=surname;
+        this.dob= new Date (dob); 
+
+    }
+    get BirthYear(){
+        return this.dob.getFullYear();
+    }
+    getFullName(){
+        return `${this.firstN} ${this.surname}`;
+
+    }
+}
+
+const personA =new Persons('Hassan','Bahati','1-25-2001')
+const personB =new Persons('Timothy','Ssenyonjo','12-27-2007')
+
+console.log(personB)
+console.log(personA)
+console.log(personB.getFullName());
+//classes are more like syntactic sugar -they are easier to use and make your work look prettier
+//they have a constructor that includes the (properties) and the{methods}
 
 
 
